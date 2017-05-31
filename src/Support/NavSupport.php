@@ -2,6 +2,9 @@
 
 namespace Xcms\Nav\Support;
 
+use Xcms\Nav\Models\Nav;
+use Xcms\Nav\Models\NavNode;
+
 class NavSupport
 {
     /**
@@ -34,4 +37,28 @@ class NavSupport
 
         return (array)$result;
     }
+
+    public function render($args = [])
+    {
+        $slug = array_get($args, 'slug');
+        if (!$slug) {
+            return null;
+        }
+        $view = array_get($args, 'view');
+
+        $nav = Nav::where('slug', $slug)->first();
+        if (!$nav) {
+            return null;
+        }
+
+        $navNode = new NavNode();
+        $navNodes = $navNode->getNavNodes($nav->id);
+
+        $isChild = false;
+
+        if ($view) {
+            return view($view, compact('navNodes', 'nav', 'isChild'))->render();
+        }
+    }
+
 }

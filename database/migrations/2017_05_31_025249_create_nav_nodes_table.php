@@ -27,7 +27,7 @@ class CreateNavNodesTable extends Migration
             $table->integer('order')->unsigned()->default(0);
 
             $table->foreign('nav_id')->references('id')->on('navs')->onDelete('cascade');
-            $table->foreign('parent_id')->references('id')->on('menu_nodes')->onDelete('set null');
+            $table->foreign('parent_id')->references('id')->on('nav_nodes')->onDelete('set null');
 
             $table->timestamps();
         });

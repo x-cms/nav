@@ -61,7 +61,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        @include('nav::partials.checkbox', ['collection' => $categories])
+                        @include('nav::partials.category', ['collection' => $categories])
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">

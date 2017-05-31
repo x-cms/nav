@@ -9,7 +9,7 @@
                 </label>
             </li>
             @if(!empty(array_get($category, 'child')))
-                @include('nav::partials.checkbox', ['collection' => collect(array_get($category, 'child'))])
+                @include('nav::partials.category', ['collection' => collect(array_get($category, 'child'))])
             @endif
         @endforeach
     </ul>

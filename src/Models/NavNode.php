@@ -104,6 +104,14 @@ class NavNode extends Model
      */
     public function getNavNodes($navId, $parentId = null)
     {
+        if($navId instanceof Nav) {
+            $nav = $navId;
+        } else {
+            $nav = $this->find($navId);
+        }
+        if(!$nav) {
+            return null;
+        }
 
         if (!$this->allRelatedNodes) {
             $this->allRelatedNodes = $this
@@ -121,6 +129,7 @@ class NavNode extends Model
             $node->model_title = $node->title;
             $node->children = $this->getNavNodes($navId, $node->id);
             $result[] = $node;
+
             /**
              * Reset related nodes when done
              */
