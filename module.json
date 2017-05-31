@@ -1,0 +1,10 @@
+{
+    "alias": "nav",
+    "name": "Nav",
+    "author": "xcms",
+    "description": "This is the description for the Nav module.",
+    "namespace": "Xcms\\Nav",
+    "version": "1.0",
+    "autoload": "psr-4",
+    "enabled": true
+}
