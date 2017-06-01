@@ -57,7 +57,7 @@ class NavSupport
         $isChild = false;
 
         if ($view) {
-            return view($view, compact('navNodes', 'nav', 'isChild'))->render();
+            return view($view, compact('navNodes', 'nav', 'isChild', 'parentUrl'))->render();
         }
     }
 

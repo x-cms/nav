@@ -107,8 +107,9 @@ class NavNode extends Model
         if($navId instanceof Nav) {
             $nav = $navId;
         } else {
-            $nav = $this->find($navId);
+            $nav = Nav::find($navId);
         }
+
         if(!$nav) {
             return null;
         }
